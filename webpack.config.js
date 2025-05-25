@@ -6,7 +6,17 @@ module.exports = {
     filename: "bundled.js",
     path: path.resolve(__dirname, "dist")
   },
-  mode: "production",
+  resolve: {
+    fallback: {
+      "crypto": false,
+      "stream": false,
+      "assert": false,
+      "http": false,
+      "https": false,
+      "os": false,
+      "url": false
+    }
+  },
   module: {
     rules: [
       {
@@ -20,5 +30,6 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  mode: "production",
 }
