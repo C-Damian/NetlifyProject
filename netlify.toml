@@ -1,9 +1,11 @@
 [build]
   base = "/"
   publish = "dist/"
-  command  = "npm run build"
+  command = "NODE_OPTIONS=--openssl-legacy-provider npm run build"
   functions = "my_functions/"
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+[context.production.environment]
+  NODE_VERSION = "16"
